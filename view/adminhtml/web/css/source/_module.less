@@ -1,0 +1,93 @@
+//
+//  Page Builder forms -> More Resize Options
+//  _____________________________________________
+
+.admin__fieldset > .fieldset-wrapper.fom-image-resize-options {
+    margin-left: ~'calc((100% + @{temp_gutter}) * @{field-label-grid__column} / @{field-grid__columns})';
+    border-bottom: 1px solid @collapsible__border-color;
+    border-top: 1px solid @collapsible__border-color;
+    margin-bottom: @indent__l;
+
+    > .fieldset-wrapper-title {
+        .admin__collapsible-title {
+            .__collapsible-sub-title-pattern();
+            font-size: 1.7rem;
+            padding-bottom: 1.4rem;
+            padding-top: 1.4rem;
+
+            &:before {
+                top: 1.5rem;
+            }
+        }
+    }
+
+    > .admin__fieldset-wrapper-content {
+        > .admin__fieldset {
+            padding-top: 0;
+        }
+    }
+}
+
+//
+//  Page Builder forms -> Resize option tooltips
+//  _____________________________________________
+
+@fom-image-resize-tooltip-arrow__top: 1rem;
+
+.fom-image-resize-options {
+    .admin__field-control._with-tooltip > .admin__field-control.admin__field-medium {
+        display: inline-block;
+        vertical-align: top;
+        width: auto;
+
+        .colorpicker-input {
+            width: 12rem !important;
+        }
+    }
+}
+
+.fom-image-resize-tooltip {
+    position: relative;
+
+    &:hover {
+        z-index: @field-tooltip-content__z-index + 10;
+    }
+
+    .admin__field-tooltip-content {
+        bottom: auto;
+        left: @field-tooltip-icon__size + @field-tooltip-content-arrow__size;
+        right: auto;
+        top: (@field-tooltip-icon__size / 2) - @fom-image-resize-tooltip-arrow__top - @field-tooltip-content-arrow__size;
+        width: 36rem;
+
+        &:after,
+        &:before {
+            .lib-arrow(
+                @_position: left,
+                @_size: @field-tooltip-content-arrow__size,
+                @_color: @field-tooltip-content__border-color
+            );
+            left: auto;
+            right: 100%;
+            top: @fom-image-resize-tooltip-arrow__top;
+        }
+
+        &:after {
+            border-right-color: @field-tooltip-content__background-color;
+            border-top-color: transparent;
+            margin-right: -1px;
+            margin-top: 0;
+        }
+    }
+
+    .fom-image-resize-tooltip-image {
+        display: block;
+        height: auto;
+        margin-bottom: @indent__s;
+        max-width: 100%;
+    }
+
+    .fom-image-resize-tooltip-text {
+        margin: 0;
+    }
+}

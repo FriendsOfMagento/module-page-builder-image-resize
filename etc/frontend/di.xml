@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\PageBuilder\Model\Filter\Template">
+        <plugin name="fom_page_builder_image_resize_resize_images"
+                type="Fom\PageBuilderImageResize\Plugin\Magento\PageBuilder\Model\Filter\Template\ResizeImagesPlugin" />
+    </type>
+</config>

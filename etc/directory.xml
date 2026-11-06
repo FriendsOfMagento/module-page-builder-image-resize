@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_MediaGalleryApi:etc/directory.xsd">
+    <exclude>
+        <patterns>
+            <pattern name="pagebuilder_image_cache">/^pagebuilder\/cache/</pattern>
+        </patterns>
+    </exclude>
+</config>

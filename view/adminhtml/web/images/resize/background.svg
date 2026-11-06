@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="101" viewBox="0 0 310 101"><defs>
+<pattern id="checker" width="12" height="12" patternUnits="userSpaceOnUse">
+<rect width="12" height="12" fill="#fff"/><rect width="6" height="6" fill="#d9d9d9"/><rect x="6" y="6" width="6" height="6" fill="#d9d9d9"/>
+</pattern>
+<filter id="blur"><feGaussianBlur stdDeviation="1.4"/></filter>
+<marker id="head" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#666"/></marker>
+</defs><rect x="4" y="40" width="16" height="16" rx="3" fill="#2bb5a5" stroke="#666"/><svg x="37.0" y="12.0" width="96" height="72" viewBox="0 0 96 72"><rect width="96" height="72" fill="url(#checker)"/><circle cx="38" cy="36" r="22" fill="#1979c3"/><path d="M48,58 L68,18 L88,58 z" fill="#eb5202"/><rect width="96" height="72" fill="none" stroke="#adadad" stroke-width="1.5"/></svg><line x1="148" y1="48" x2="178" y2="48" stroke="#666" stroke-width="2" marker-end="url(#head)"/><rect x="195.0" y="23.0" width="100" height="50" fill="#2bb5a5" stroke="#666" stroke-width="1.5"/><svg x="211.65" y="23.0" width="66.7" height="50" viewBox="0 0 96 72"><rect width="96" height="72" fill="#2bb5a5"/><circle cx="38" cy="36" r="22" fill="#1979c3"/><path d="M48,58 L68,18 L88,58 z" fill="#eb5202"/></svg></svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="DefaultWYSIWYGValidator">
+        <arguments>
+            <argument name="allowedAttributes" xsi:type="array">
+                <item name="data-image-resize-desktop" xsi:type="string">data-image-resize-desktop</item>
+                <item name="data-image-resize-mobile" xsi:type="string">data-image-resize-mobile</item>
+                <item name="data-image-resize-fallback" xsi:type="string">data-image-resize-fallback</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Fom\PageBuilderImageResize\Model\Image\VariantGenerator">
+        <arguments>
+            <argument name="maxPixels" xsi:type="number">40000000</argument>
+            <argument name="lockTimeout" xsi:type="number">10</argument>
+        </arguments>
+    </type>
+    <type name="Fom\PageBuilderImageResize\Model\Image\MediaUrlResolver">
+        <arguments>
+            <argument name="excludedPaths" xsi:type="array">
+                <item name="customer" xsi:type="string">customer</item>
+                <item name="customer_address" xsi:type="string">customer_address</item>
+                <item name="custom_options" xsi:type="string">custom_options</item>
+                <item name="downloadable" xsi:type="string">downloadable</item>
+                <item name="import" xsi:type="string">import</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Fom\PageBuilderImageResize\Model\Html\ImageRewriter\VideoFallbackRewriter"
+                 type="Fom\PageBuilderImageResize\Model\Html\ImageRewriter\AttributeSourceRewriter">
+        <arguments>
+            <argument name="attribute" xsi:type="string">data-video-fallback-src</argument>
+            <argument name="settingName" xsi:type="string">fallback</argument>
+        </arguments>
+    </virtualType>
+    <type name="Fom\PageBuilderImageResize\Model\Html\ResizeAttributeProcessor">
+        <arguments>
+            <argument name="rewriters" xsi:type="array">
+                <item name="image" xsi:type="object">Fom\PageBuilderImageResize\Model\Html\ImageRewriter\ImageSourceRewriter</item>
+                <item name="background_images" xsi:type="object">Fom\PageBuilderImageResize\Model\Html\ImageRewriter\BackgroundImagesRewriter</item>
+                <item name="video_fallback" xsi:type="object">Fom\PageBuilderImageResize\Model\Html\ImageRewriter\VideoFallbackRewriter</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Fom\PageBuilderImageResize\Model\ContentType\ResizeAttributeInjector">
+        <arguments>
+            <argument name="sources" xsi:type="array">
+                <item name="background_images" xsi:type="array">
+                    <item name="attribute" xsi:type="string">data-background-images</item>
+                    <item name="settings" xsi:type="array">
+                        <item name="image_resize_desktop" xsi:type="string">data-image-resize-desktop</item>
+                        <item name="image_resize_mobile" xsi:type="string">data-image-resize-mobile</item>
+                    </item>
+                </item>
+                <item name="video_fallback" xsi:type="array">
+                    <item name="attribute" xsi:type="string">data-video-fallback-src</item>
+                    <item name="settings" xsi:type="array">
+                        <item name="image_resize_fallback" xsi:type="string">data-image-resize-fallback</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

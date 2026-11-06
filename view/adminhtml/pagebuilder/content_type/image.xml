@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="image">
+        <appearances>
+            <appearance name="full-width">
+                <elements>
+                    <element name="desktop_image">
+                        <attribute name="image_resize_desktop" source="data-image-resize-desktop" />
+                    </element>
+                    <element name="mobile_image">
+                        <attribute name="image_resize_mobile" source="data-image-resize-mobile" />
+                    </element>
+                </elements>
+                <converters>
+                    <converter name="image_resize_desktop" component="Fom_PageBuilderImageResize/js/mass-converter/image-resize">
+                        <config>
+                            <item name="attribute_name" value="image_resize_desktop" />
+                        </config>
+                    </converter>
+                    <converter name="image_resize_mobile" component="Fom_PageBuilderImageResize/js/mass-converter/image-resize">
+                        <config>
+                            <item name="attribute_name" value="image_resize_mobile" />
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+        </appearances>
+    </type>
+</config>

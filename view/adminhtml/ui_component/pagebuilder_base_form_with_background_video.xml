@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" extends="pagebuilder_base_form_with_background_attributes">
+    <fieldset name="background">
+        <field name="image_resize_desktop_enabled" sortOrder="31">
+            <settings>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${$.parentName}.background_type:imageVisible</link>
+                </imports>
+            </settings>
+        </field>
+        <field name="image_resize_desktop_width" sortOrder="32" />
+        <field name="image_resize_desktop_height" sortOrder="33" />
+        <fieldset name="image_resize_desktop_options" sortOrder="34" />
+        <field name="image_resize_mobile_enabled" sortOrder="41">
+            <settings>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${$.parentName}.background_type:imageVisible</link>
+                </imports>
+            </settings>
+        </field>
+        <field name="image_resize_mobile_width" sortOrder="42" />
+        <field name="image_resize_mobile_height" sortOrder="43" />
+        <fieldset name="image_resize_mobile_options" sortOrder="44" />
+        <field name="image_resize_fallback_enabled" sortOrder="141" formElement="checkbox" component="Fom_PageBuilderImageResize/js/form/element/resize-toggle">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">0</item>
+                    <item name="resizePrefix" xsi:type="string">image_resize_fallback</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${$.parentName}.background_type:videoVisible</link>
+                </imports>
+                <dataScope>image_resize_fallback_enabled</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <description translate="true">Resize Image</description>
+                        <valueMap>
+                            <map name="false" xsi:type="string">0</map>
+                            <map name="true" xsi:type="string">1</map>
+                        </valueMap>
+                        <prefer>checkbox</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="image_resize_fallback_width" sortOrder="142" formElement="input" component="Fom_PageBuilderImageResize/js/form/element/resize-dimension">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizePrefix" xsi:type="string">image_resize_fallback</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-digits" xsi:type="boolean">true</rule>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Width</label>
+                <addAfter translate="true">px</addAfter>
+                <additionalClasses>
+                    <class name="admin__field-small">true</class>
+                </additionalClasses>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                </imports>
+                <dataScope>image_resize_fallback_width</dataScope>
+            </settings>
+        </field>
+        <field name="image_resize_fallback_height" sortOrder="143" formElement="input" component="Fom_PageBuilderImageResize/js/form/element/resize-dimension">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizePrefix" xsi:type="string">image_resize_fallback</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-digits" xsi:type="boolean">true</rule>
+                    <rule name="validate-greater-than-zero" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Height</label>
+                <addAfter translate="true">px</addAfter>
+                <notice translate="true">Leave one side empty to keep the proportions.</notice>
+                <additionalClasses>
+                    <class name="admin__field-small">true</class>
+                </additionalClasses>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                </imports>
+                <dataScope>image_resize_fallback_height</dataScope>
+            </settings>
+        </field>
+        <fieldset name="image_resize_fallback_options" sortOrder="144">
+            <settings>
+                <label translate="true">More Resize Options</label>
+                <additionalClasses>
+                    <class name="fom-image-resize-options">true</class>
+                </additionalClasses>
+                <collapsible>true</collapsible>
+                <opened>false</opened>
+                <visible>false</visible>
+                <imports>
+                    <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                </imports>
+            </settings>
+            <field name="image_resize_fallback_aspect_ratio" sortOrder="10" formElement="checkbox" component="Fom_PageBuilderImageResize/js/form/element/use-default-checkbox">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="default" xsi:type="string">1</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="image" xsi:type="string">Fom_PageBuilderImageResize/images/resize/aspect-ratio.svg</item>
+                            <item name="description" xsi:type="string" translate="true">Scales the image proportionally. Off stretches it to the exact width and height.</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <dataType>boolean</dataType>
+                    <label translate="true">Keep Aspect Ratio</label>
+                    <visible>false</visible>
+                    <imports>
+                        <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                    </imports>
+                    <dataScope>image_resize_fallback_aspect_ratio</dataScope>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field>
+            <field name="image_resize_fallback_frame" sortOrder="20" formElement="checkbox" component="Fom_PageBuilderImageResize/js/form/element/frame-toggle">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="default" xsi:type="string">0</item>
+                        <item name="dimensionPrefix" xsi:type="string">image_resize_fallback</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="image" xsi:type="string">Fom_PageBuilderImageResize/images/resize/frame.svg</item>
+                            <item name="description" xsi:type="string" translate="true">Places the image in a box of exactly width by height and fills the gap with the background color. Requires both width and height.</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <dataType>boolean</dataType>
+                    <label translate="true">Keep Frame</label>
+                    <visible>false</visible>
+                    <imports>
+                        <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                    </imports>
+                    <dataScope>image_resize_fallback_frame</dataScope>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field>
+            <field name="image_resize_fallback_constrain" sortOrder="30" formElement="checkbox" component="Fom_PageBuilderImageResize/js/form/element/use-default-checkbox">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="default" xsi:type="string">1</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="image" xsi:type="string">Fom_PageBuilderImageResize/images/resize/constrain.svg</item>
+                            <item name="description" xsi:type="string" translate="true">Never makes the image larger than the original. A smaller image is served as is.</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <dataType>boolean</dataType>
+                    <label translate="true">Do Not Upscale</label>
+                    <visible>false</visible>
+                    <imports>
+                        <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                    </imports>
+                    <dataScope>image_resize_fallback_constrain</dataScope>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field>
+            <field name="image_resize_fallback_transparency" sortOrder="40" formElement="checkbox" component="Fom_PageBuilderImageResize/js/form/element/use-default-checkbox">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="default" xsi:type="string">1</item>
+                        <item name="tooltip" xsi:type="array">
+                            <item name="image" xsi:type="string">Fom_PageBuilderImageResize/images/resize/transparency.svg</item>
+                            <item name="description" xsi:type="string" translate="true">Keeps the transparent areas of PNG images. Off fills them with the background color.</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <dataType>boolean</dataType>
+                    <label translate="true">Keep Transparency</label>
+                    <visible>false</visible>
+                    <imports>
+                        <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                    </imports>
+                    <dataScope>image_resize_fallback_transparency</dataScope>
+                </settings>
+                <formElements>
+                    <checkbox>
+                        <settings>
+                            <valueMap>
+                                <map name="false" xsi:type="string">0</map>
+                                <map name="true" xsi:type="string">1</map>
+                            </valueMap>
+                            <prefer>toggle</prefer>
+                        </settings>
+                    </checkbox>
+                </formElements>
+            </field>
+            <field name="image_resize_fallback_background" sortOrder="50" formElement="colorPicker" component="Fom_PageBuilderImageResize/js/form/element/use-default-color-picker">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="tooltip" xsi:type="array">
+                            <item name="image" xsi:type="string">Fom_PageBuilderImageResize/images/resize/background.svg</item>
+                            <item name="description" xsi:type="string" translate="true">Fills the frame, and the transparent areas when transparency is not kept.</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <label translate="true">Background Color</label>
+                    <componentType>colorPicker</componentType>
+                    <placeholder translate="true">White</placeholder>
+                    <validation>
+                        <rule name="validate-color" xsi:type="boolean">true</rule>
+                    </validation>
+                    <additionalClasses>
+                        <class name="admin__field-medium">true</class>
+                    </additionalClasses>
+                    <visible>false</visible>
+                    <imports>
+                        <link name="visible">${ $.provider }:params.image_resize_fallback_active</link>
+                    </imports>
+                    <dataScope>image_resize_fallback_background</dataScope>
+                </settings>
+                <formElements>
+                    <colorPicker>
+                        <settings>
+                            <colorPickerMode>noalpha</colorPickerMode>
+                            <colorFormat>hex</colorFormat>
+                        </settings>
+                    </colorPicker>
+                </formElements>
+            </field>
+        </fieldset>
+    </fieldset>
+</form>
