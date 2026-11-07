@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-07
+
 ### Added
 
 - Per-image resize settings under each Page Builder image uploader: desktop and mobile images of Image, Row, Banner, Slide, Column, Column Group and Tab Item, and the video fallback image of Row, Banner and Slide.
